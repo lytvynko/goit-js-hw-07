@@ -11,29 +11,30 @@ function getRandomHexColor() {
     .toString(16)
     .padStart(6, 0)}`;
 }
-let width = 30,
-    height = 30;
+
 let createBoxes = () => {
-  let amountValue = +amount.value
+  let amountValue = +amount.value,
+      width = 30,
+      height = 30,
+      arr = []
   if (amountValue >= 1 && amountValue <= 100) {
     
     for (let i=0; i < +amount.value; i++) {
       let block = document.createElement('div')
-      block.style.background = getRandomHexColor();
+      block.style.backgroundColor = getRandomHexColor();
       block.style.width = `${width}px`;
       block.style.height = `${height}px`;
-      boxes.append(block);
+      arr.push(block);
       width += 10;
       height += 10
     }
   } else {
     alert('Min amount is 1 and max amount is 100')
   }  
+  boxes.append(...arr);
 }
 let destroyBoxes = () => {
   boxes.innerHTML = ''
-  width = 30,
-  height = 30
   amount.value = ''
 }
 createBtn.addEventListener('click', createBoxes)
