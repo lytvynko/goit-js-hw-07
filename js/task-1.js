@@ -1,13 +1,9 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const categoriesList = document.querySelectorAll('#categories .item');
+const categories = document.querySelectorAll('#categories .item');
 
-  console.log(`Number of categories: ${categoriesList.length}`);
-
-  categoriesList.forEach(category => {
-    const categoryTitle = category.querySelector('h2').textContent;
-    const categoryItems = category.querySelectorAll('ul li').length;
-
-    console.log(`Category: ${categoryTitle}`);
-    console.log(`Elements: ${categoryItems}`);
-  });
-});
+console.log(`Number of categories: ${categories.length}`);
+categories.forEach(item => {
+    let title = item.querySelector('h2'),
+        elements = item.querySelectorAll('li')
+    console.log(`Category: ${title.textContent}`)
+    console.log(`Amount: ${elements.length}`)
+})
